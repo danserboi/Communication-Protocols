@@ -1,0 +1,239 @@
+2) Folosind utilitarul dig, realizați următoarele sarcini:
+
+a) realizați cereri de adresă (A) pentru fiecare gazdă din tabelul de mai jos:
+
+C:
+dig A single-v4.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A single-v4.protocoale.xyz +noall +answer
+;; global options: +cmd
+single-v4.protocoale.xyz. 187	IN	A	127.0.0.1
+
+C:
+dig A single.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A single.protocoale.xyz +noall +answer
+;; global options: +cmd
+single.protocoale.xyz.	300	IN	A	127.0.0.1
+
+C:
+dig A dorinel.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A dorinel.protocoale.xyz +noall +answer
+;; global options: +cmd
+dorinel.protocoale.xyz.	300	IN	A	127.42.0.0
+
+C:
+dig A multi-v4.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A multi-v4.protocoale.xyz +noall +answer
+;; global options: +cmd
+multi-v4.protocoale.xyz. 300	IN	A	127.1.1.1
+multi-v4.protocoale.xyz. 300	IN	A	127.4.4.4
+multi-v4.protocoale.xyz. 300	IN	A	127.2.2.2
+multi-v4.protocoale.xyz. 300	IN	A	127.3.3.3
+
+C:
+dig A multi.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A multi.protocoale.xyz +noall +answer
+;; global options: +cmd
+multi.protocoale.xyz.	300	IN	A	127.2.2.2
+multi.protocoale.xyz.	300	IN	A	127.3.3.3
+multi.protocoale.xyz.	300	IN	A	127.4.4.4
+multi.protocoale.xyz.	300	IN	A	127.1.1.1
+
+C:
+dig A pc.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A pc.protocoale.xyz +noall +answer
+;; global options: +cmd
+pc.protocoale.xyz.	300	IN	CNAME	pcom.protocoale.xyz.
+pcom.protocoale.xyz.	299	IN	CNAME	protocoale.protocoale.xyz.
+protocoale.protocoale.xyz. 41	IN	A	127.42.42.42
+
+C:
+dig A pcom.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A pcom.protocoale.xyz +noall +answer
+;; global options: +cmd
+pcom.protocoale.xyz.	219	IN	CNAME	protocoale.protocoale.xyz.
+protocoale.protocoale.xyz. 300	IN	A	127.42.42.42
+
+C:
+dig A protocoale.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A protocoale.protocoale.xyz +noall +answer
+;; global options: +cmd
+protocoale.protocoale.xyz. 300	IN	A	127.42.42.42
+
+b) pentru gazdele care au (și) adrese IPv6, realizați cereri de tip AAAA
+
+C:
+dig AAAA single-v6.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> AAAA single-v6.protocoale.xyz +noall +answer
+;; global options: +cmd
+single-v6.protocoale.xyz. 300	IN	AAAA	::1
+
+C:
+dig AAAA multi-v6.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> AAAA multi-v6.protocoale.xyz +noall +answer
+;; global options: +cmd
+multi-v6.protocoale.xyz. 300	IN	AAAA	::3
+multi-v6.protocoale.xyz. 300	IN	AAAA	::1
+multi-v6.protocoale.xyz. 300	IN	AAAA	::4
+multi-v6.protocoale.xyz. 300	IN	AAAA	::2
+
+C:
+dig AAAA multi.protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> AAAA multi.protocoale.xyz +noall +answer
+;; global options: +cmd
+multi.protocoale.xyz.	300	IN	AAAA	::1
+multi.protocoale.xyz.	300	IN	AAAA	::3
+multi.protocoale.xyz.	300	IN	AAAA	::4
+multi.protocoale.xyz.	300	IN	AAAA	::2
+
+c)pentru serverul de mail din tabelul de mai jos, realizați o cerere de tip MX
+
+C:
+dig MX protocoale.xyz +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> MX protocoale.xyz +noall +answer
+;; global options: +cmd
+protocoale.xyz.		300	IN	MX	20 alt2.gmail-smtp-in.l.google.com.
+protocoale.xyz.		300	IN	MX	10 alt1.gmail-smtp-in.l.google.com.
+protocoale.xyz.		300	IN	MX	30 alt3.gmail-smtp-in.l.google.com.
+
+d)realizați o cerere DNS în care să afișați doar secțiunea de RR-uri autoritare
+
+C:
+dig @l.gtld-servers.net google.com +noall +authority
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> @l.gtld-servers.net google.com +noall +authority
+; (2 servers found)
+;; global options: +cmd
+google.com.		172800	IN	NS	ns2.google.com.
+google.com.		172800	IN	NS	ns1.google.com.
+google.com.		172800	IN	NS	ns3.google.com.
+google.com.		172800	IN	NS	ns4.google.com.
+
+e)folosiți mai multe servere de nume pentru a interoga adresa IP a google.com (puteți găsi aici o listă de servere DNS publice); veți observa că nu întotdeauna primiți același IP; de ce?
+
+C:
+dig @41.228.66.65 google.com +short
+R:
+216.58.213.142
+
+C:
+dig @ns1.google.com google.com +short
+R:
+172.217.20.14
+
+C:
+dig @210.201.108.62 google.com +short
+R:
+172.217.160.78
+
+Interpretare: Primim adrese IP diferite din motive de evitare a overloading-ului.
+
+f)realizați o interogare de tip bulk (folosind un fișier pentru definirea cererilor) la serverul de nume 8.8.8.8 pentru toate gazdele din tabelul de mai jos; fișierul folosit trebuie inclus în arhiva cu rezolvări
+
+C:
+dig -f queries.txt @8.8.8.8 +noall +answer
+R:
+single-v4.protocoale.xyz. 299	IN	A	127.0.0.1
+single.protocoale.xyz.	299	IN	A	127.0.0.1
+dorinel.protocoale.xyz.	299	IN	A	127.42.0.0
+multi-v4.protocoale.xyz. 299	IN	A	127.4.4.4
+multi-v4.protocoale.xyz. 299	IN	A	127.3.3.3
+multi-v4.protocoale.xyz. 299	IN	A	127.1.1.1
+multi-v4.protocoale.xyz. 299	IN	A	127.2.2.2
+multi.protocoale.xyz.	299	IN	A	127.4.4.4
+multi.protocoale.xyz.	299	IN	A	127.3.3.3
+multi.protocoale.xyz.	299	IN	A	127.2.2.2
+multi.protocoale.xyz.	299	IN	A	127.1.1.1
+pc.protocoale.xyz.	299	IN	CNAME	pcom.protocoale.xyz.
+pcom.protocoale.xyz.	299	IN	CNAME	protocoale.protocoale.xyz.
+protocoale.protocoale.xyz. 299	IN	A	127.42.42.42
+pcom.protocoale.xyz.	299	IN	CNAME	protocoale.protocoale.xyz.
+protocoale.protocoale.xyz. 299	IN	A	127.42.42.42
+protocoale.protocoale.xyz. 299	IN	A	127.42.42.42
+
+g)folosind opțiunea de tracing, analizați pașii necesari aflării adresei IPv4 pentru test.dorinel.protocoale.xyz; notați care sunt serverele de nume ce răspund pentru protocoale.xyz, respectiv pentru zona dorinel.protocoale.xyz
+
+C:
+dig google.com +noall +answer +trace
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> @8.8.8.8 test.dorinel.protocoale.xyz +trace
+; (1 server found)
+;; global options: +cmd
+.			47430	IN	NS	a.root-servers.net.
+.			47430	IN	NS	b.root-servers.net.
+.			47430	IN	NS	c.root-servers.net.
+.			47430	IN	NS	d.root-servers.net.
+.			47430	IN	NS	e.root-servers.net.
+.			47430	IN	NS	f.root-servers.net.
+.			47430	IN	NS	g.root-servers.net.
+.			47430	IN	NS	h.root-servers.net.
+.			47430	IN	NS	i.root-servers.net.
+.			47430	IN	NS	j.root-servers.net.
+.			47430	IN	NS	k.root-servers.net.
+.			47430	IN	NS	l.root-servers.net.
+.			47430	IN	NS	m.root-servers.net.
+.			47430	IN	RRSIG	NS 8 0 518400 20200428050000 20200415040000 48903 . ELIP5xKkHgtPKeLerBi+kg22ySpc7JqgDScIGY1ekOmbpsX287eJ8gB5 rz+fPKUn+W539Oeq8L0KVd4zHwYaaTOsr3fbEEY8DxqHYMSXHefmk16v nNcUX5+j1ZQufZvUD4PFW+YcHNRk8AIi9Z/dhHxeTaMo6JSrEJTnVzIR I9nt/9HIjvTpxICdO9R8C7dM5wEOxx2FuB658mXvY297LM8wJGRUAzSc P+bXC71fgHaRaZ8xQHaqOwFl1iMOEPAER65JSJAbDuGSIPjR/+ZVxyxm KwMXWwfDX2fn/yY4W/pOqxDzR3IHp13PfaN/GqRLQhjkGX+3doNnPwKY dLFl6w==
+;; Received 525 bytes from 8.8.8.8#53(8.8.8.8) in 41 ms
+
+xyz.			172800	IN	NS	y.nic.xyz.
+xyz.			172800	IN	NS	x.nic.xyz.
+xyz.			172800	IN	NS	z.nic.xyz.
+xyz.			172800	IN	NS	generationxyz.nic.xyz.
+xyz.			86400	IN	DS	3599 8 2 B9733869BC84C86BB59D102BA5DA6B27B2088552332A39DCD54BC4E8 D66B0499
+xyz.			86400	IN	DS	3599 8 1 3FA3B264F45DB5F38BEDEAF1A88B76AA318C2C7F
+xyz.			86400	IN	RRSIG	DS 8 1 86400 20200428170000 20200415160000 48903 . hgClFAX86rlbPkKQijrIJXE2k0eDt1LbGA1aTiK7SXmoWkBt6s1mKYn6 UitDnTn1c8s4YitUjo5+dk0lwODzUQBor2Elq7H/3AraI19cNbc0e8Oy FXXhKYWAIuKIu+qPMY5vHocEscXVFmFpVJBwqeSh5MdjgrxiJgugeDmC 8UoLHhTnZqdQLN7vacL8G9fGVrXgFOY+g5KPPD6P7foHYE2A1AvxB2kU oNpj3qrnI74X5Gtz+HAOes1dwjL1/kFd/rnQb3Yfr+5X1DvoGD06lzjl Rbb4lQzIPxJf2w6wkLmsCM6iGG54YpOrueHYZKKJTstR4ML+XYgI3ZCx nxvzvg==
+;; Received 683 bytes from 202.12.27.33#53(m.root-servers.net) in 60 ms
+
+protocoale.xyz.		3600	IN	NS	ns1bcp.name.com.
+protocoale.xyz.		3600	IN	NS	ns2dqr.name.com.
+protocoale.xyz.		3600	IN	NS	ns3hjx.name.com.
+protocoale.xyz.		3600	IN	NS	ns4lrt.name.com.
+1h97h2oec2juov8dlbbjj6i7ik26bm8d.xyz. 3600 IN NSEC3 1 1 1 - 1H9SP7N22537R92KKG4DNO5R90TMHMCQ  NS SOA RRSIG DNSKEY NSEC3PARAM
+1h97h2oec2juov8dlbbjj6i7ik26bm8d.xyz. 3600 IN RRSIG NSEC3 8 2 3600 20200425000111 20200326053215 37419 xyz. QhCOAu4yQszhOyNZIIN8flrK8tfwVRtke2Hzy77VHJIlXJzKSnK2P1Hg BF1wIeUnLKC9fAofxIioZiVNS+FqHzJU20jSYk52K/J6Dsha37UnfwLa lEModhinomyh3XiDQ6V+7mHqrNtjQMJyCXL3AaXIFFveC2b9j9Y4ncCk GnU=
+d394i4dtikr8ao48rslqafc0avj97mka.xyz. 3600 IN NSEC3 1 1 1 - D3B9S8BVRN2IEBV2IRJ74QSTG2TBB0VI  NS DS RRSIG
+d394i4dtikr8ao48rslqafc0avj97mka.xyz. 3600 IN RRSIG NSEC3 8 2 3600 20200513203551 20200413124349 64504 xyz. DkLd8LAYTBcVUTO9kvv+3gdMjBoYhL+Z3Dw9axM9Ex073k00WPuqZIPm 5ecv68hY1DNKYlR/S8X7XY/fNUnnYE6WpbV4rGKwgvUUqIjshkZUmkTm i000oBJMo0gTMgCwCVuUCPYI7i4QPyt5lEXTERuseiLShY8sS2kEq8Vc gvE=
+;; Received 633 bytes from 194.169.218.42#53(x.nic.xyz) in 81 ms
+
+dorinel.protocoale.xyz.	300	IN	NS	potato.dfilip.xyz.
+;; Received 100 bytes from 162.88.60.47#53(ns2dqr.name.com) in 49 ms
+
+test.dorinel.protocoale.xyz. 300 IN	A	127.0.42.0
+test.dorinel.protocoale.xyz. 300 IN	A	127.0.0.42
+dorinel.protocoale.xyz.	300	IN	NS	potato.dfilip.xyz.
+;; Received 144 bytes from 82.78.81.172#53(potato.dfilip.xyz) in 27 ms
+
+Interpretare: Serverul de nume trimite un mesaj de cerere către serverul de nume de pe primul nivel al domeniului solicitat si recursiv mai departe, deoarece fiecare server care nu are informația cerută o caută în altă parte și raportează. Astfel, serverul corespunzator root-server-ului trimite o cerere catre serverele de nume pentru .xyz, serverul corespunzator .xyz catre serverele de nume pentru protocoale.xyz., serverul corespunzator protocoale.xyz. catre serverele de nume pentru dorinel.protocoale.xyz., serverul corespunzator dorinel.protocoale.xyz. catre serverele de nume pentru test.dorinel.protocoale.xyz., de unde se primeste IP-ul.
+
+Serverele de nume ce raspund pentru protocoale.xyz sunt:
+ns1bcp.name.com.
+ns2dqr.name.com.
+ns3hjx.name.com.
+ns4lrt.name.com.
+Serverele de nume pentru zona dorinel.protocoale.xyz sunt:
+potato.dfilip.xyz.
+
+h) realizați o căutare inversă (PTR) pentru o adresă IP; notați care este numele de domeniu pentru care se realizează cererea și explicați de ce numerele din componența adresei IP sunt în ordine inversă
+
+C:
+dig -x 127.0.0.42 +noall +answer
+R:
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> -x 127.0.0.42 +noall +answer
+;; global options: +cmd
+42.0.0.127.in-addr.arpa. 0	IN	PTR	localhost.
+
+Interpretare: Numerele din componenta adresei IP sunt in ordine inversa deoarece adresarea se face in mod ierarhic, iar cel mai semnificativ byte al unei adrese IP se afla in stanga sa(Ex: 127). Astfel, se obtin in ordine bytes de la stanga la dreapta(127, apoi 0, apoi 0, si, in final 42).
+
+i) folosiți Wireshark pentru a vedea cum arată o cerere și un răspuns DNS; includeți fișierele .pcap sau un screenshot în arhiva cu rezolvări.
+
+Interpretare: Am atasat imagini.
