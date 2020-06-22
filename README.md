@@ -17,7 +17,7 @@ Laboratory solutions for the Communication Protocols course @ Faculty of Automat
   * C implementation of ping and traceroute utilities. ICMP [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator5?ts=4)
 
 * **Lab 6**:
-  * C Implementation of a mini file backup server and a client of this server. UDP sockets[source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator6?ts=4)
+  * C Implementation of a mini file backup server and a client of this server. UDP sockets [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator6?ts=4)
 
 * **Lab 7**:
   * TCP client-server applications: echo server and 2 clients chat.  TCP sockets [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator7?ts=4)
