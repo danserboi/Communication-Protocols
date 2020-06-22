@@ -26,7 +26,7 @@ Laboratory solutions for the Communication Protocols course @ Faculty of Automat
   * TCP Multiplexing [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator8?ts=4)
 
 * **Lab 9**:
-  * DNS protcol [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator9?ts=4)
+  * DNS protocol [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator9?ts=4)
 
 * **Lab 10**:
   * HTTP protocol [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator10?ts=4)
