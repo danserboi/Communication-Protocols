@@ -40,5 +40,8 @@ Laboratory solutions for the Communication Protocols course @ Faculty of Automat
 * **Lab 13**:
   * Security Protocols. SSL. HTTPS [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator13?ts=4)
   
+* **Practical Test**:
+  * C client-server application(using TCP) that simulates the HTTP protocol [source](https://github.com/danserboi/Communication-Protocols/tree/master/TestPracticPC?ts=4)
+  
 ### Author
 * Florea-Dan Șerboi
