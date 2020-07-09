@@ -5,7 +5,7 @@ Laboratory solutions for the Communication Protocols course @ Faculty of Automat
   * C implementation of cat and tac utilities [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator1?ts=4)
   
 * **Lab 2**: 
-  * C program that simulates the transmission and reception of a file at the Data Link Layer [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator2?ts=4)
+  * C program that simulates the transmission and reception of a file at the Data Link Layer. STOP AND WAIT protocol [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator2?ts=4)
   
 * **Lab 3**:
   * Sliding window protocol. Longitudinal Redundancy Check (Parity Word) [source](https://github.com/danserboi/Communication-Protocols/tree/master/laborator3?ts=4)
