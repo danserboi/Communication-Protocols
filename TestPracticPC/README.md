@@ -1,1 +1,1 @@
-# Aplicație client-server(folosind TCP) care simuleaza protocolul HTTP implementată în C.
+* Aplicație client-server(folosind TCP) care simuleaza protocolul HTTP implementată în C.
